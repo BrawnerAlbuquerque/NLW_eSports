@@ -1,0 +1,170 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+body{
+    background-image: url(./assets/Fundo.jpg);
+    background-position: top center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+body *{
+    font-family: 'Inter', sans-serif;
+    line-height: 160%;
+}
+header {
+    padding-top: 30px;    
+    height: calc(120px + 30px);
+}
+header div{
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    border-radius: 50%;
+    display: flex;/*como só tem a imagem vai servir pra centralizar bem direitinho*/
+    padding: 4px;
+    transition: transform .3s;
+    /* transition vai monitorar o transform para
+    na hora que ele for execultar demorar 0.3s*/
+}
+header div:hover{
+    transform: scale(1.1);
+}
+
+header div img{
+    width: 100%;
+    border-radius: 50%;
+
+}
+
+main{
+    max-width: 580px;
+    width: 90%;
+    margin: 32px auto;
+
+    /*display: flex;
+    flex-direction: column;*/
+    display: grid;
+    gap: 24px;
+    margin-top: 32px;
+}
+
+section{
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+}
+section div{
+    background-color: #2a2634;
+
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+}
+section h2{
+    letter-spacing: -0.47px;
+}
+section p{
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+section ul{
+    display: flex;
+    flex-wrap: wrap; /* faz com que se os itens da lista
+                      utrapassem a borda da caixa sejam
+                      jogados para baixo*/
+    gap: 16px;
+    margin-top: 24px;
+}
+section ul li{
+    transition: transform .3s;
+}
+section ul li:hover{
+    transform: scale(1.1);
+}
+.games-list img{
+    width: 90px;
+    border-radius: 8px;
+}
+.channels-list img{
+    width: 70px;
+    border-radius: 50%;
+    border: 1px solid #443e54;
+}
+/*main section:nth-child(4) *{
+    border: 1px solid red;
+}*/
+.div-parca{
+    display: flex;
+    padding-left: 0px;
+}
+.div-parca img{
+    width: 150px;
+    border-radius: 10px;
+    margin-right: 15px;
+    border: 3px solid #15131a;
+    transition: transform .3s;
+}
+.div-parca img:hover{
+    transform: scale(1.1);
+}
+.div-parca p{
+    width: 100%;
+}
+/*============= Animação ==============*/
+header div{
+    animation: fromTop .7s .3s backwards;
+    /*animation-delay: 1s; tempo q demora para a animação começar*/
+}
+
+main section{
+    animation: fromLeft .7s backwards;
+}
+main section:nth-child(1){/*na section do main no filho de numero 1...*/
+    animation-delay: .3s;
+}
+main section:nth-child(2){
+    animation-delay: .5s;
+}
+main section:nth-child(3){
+    animation-delay: .8s;
+}
+main section:nth-child(4){
+    animation-delay: 1s;
+}
+
+@keyframes fromTop{
+    from {
+        opacity: 0;
+        /* opacidade é utilizado aqui para não notarmos
+         o tempo para carregar a imagem que a pag leva*/
+        transform: translateY(-60px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/*
+@keyframes  dá inicio a animação fromTop é o nome arbitrario
+translateY(0) manda para a posição final que é a definida estaticamene
+animation: nome_animacao tempo_excucao delay algm_coisa;
+backwards em animation serve para durante o periodo do delay
+as propriedades definidas em from serem aplicadas
+*/
+@keyframes fromLeft{
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
